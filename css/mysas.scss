@@ -1,0 +1,54 @@
+$myfont: Helvetica, sans-serif;
+$mycolor: #d3a91f;
+$bgcolor: #000;
+$value: 10px;
+$width: 100%;
+
+
+@import "preset";
+
+body {
+    font: $myfont;
+    color: $mycolor;
+}
+
+ul {
+    list-style: none;
+    li {
+        margin: 0;
+        display: inline;
+        a {
+            text-decoration: none;
+            color: $mycolor;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+main {
+    width: $width*.9;
+    margin: 0 auto;
+    background: lighten($mycolor, 10%);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: $value;
+    padding: $value;
+}
+
+div {
+    background-color: grayscale($mycolor);
+    padding: $value/2;
+}
+
+.myContainers {
+    @extend div;
+    color: darken($mycolor, 100%);
+}
+
+footer {
+    @extend div;
+    padding: $value*2;
+    margin-top: $value*2;
+}
